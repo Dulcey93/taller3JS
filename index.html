@@ -21,7 +21,7 @@
         <form id="myFormularioTrainers">
             <select name="sede"></select><br>
             <input type="text" name="nombre" placeholder="Ingrese el nombre del Trainer"><br>
-            <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
+            <input type="tel" name="telefono" placeholder="Ingrese el telefono del Trainer"><br>
             <select name="team"></select><br>
             <input type="email" name="correo" placeholder="Ingrese el correo del Trainer"><br>
             <input type="submit" value="Guardar">
@@ -29,11 +29,16 @@
     </fieldset>
 
     <fieldset>
-        <legend>Datos de los Campers CAMPUS:</legend>
+        <legend>Datos de los Campers</legend>
         <form id="myFormularioCampers">
             <select name="sede"></select><br>
             <input type="text" name="nombre" placeholder="Ingrese el nombre del camper"><br>
             <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
+            <select name="team"></select><br>
+            <input type="text" name="adress" placeholder="Ingrese su barrio"><br>
+            <input type="email" name="correo" placeholder="Ingrese el correo del Trainer"><br>
+            <select name="nivel"></select><br>
+            <select name="transporte"></select><br>
             <input type="submit" value="Guardar">
         </form>
     </fieldset>
@@ -42,8 +47,10 @@
         <legend>Datos de los Niveles:</legend>
         <form id="myFormularioNiveles">
             <select name="sede"></select><br>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre del camper"><br>
-            <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
+            <input type="text" name="nombreNivel" placeholder="Nuevo nivel"><br>
+            <select name="requisito"></select><br>
+            <select name="tecnologia"></select><br>
+            <select name="electiva"></select><br>
             <input type="submit" value="Guardar">
         </form>
     </fieldset>
@@ -52,8 +59,10 @@
         <legend>Datos del Roadmap:</legend>
         <form id="myFormularioRoadmaps">
             <select name="sede"></select><br>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre del camper"><br>
-            <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
+            <select name="roadmap"></select><br>
+            <input type="number" name="creditos" placeholder="numero de créditos"><br>
+            <input type="date" name="fecha" value="2017-06-01" placeholder="fecha"><br>
+            <input type="number" name="asignaturas" placeholder="numero de asignaturas"><br>
             <input type="submit" value="Guardar">
         </form>
     </fieldset>
