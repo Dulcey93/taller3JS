@@ -50,18 +50,15 @@ let listaTeams = () => {
     const sedeEncontrada = campus.sedes.find((sede) => sede.nombreSede === sedeSeleccionada);
     const teams = sedeEncontrada ? sedeEncontrada.teams : [];
     teams.forEach((team) => {
-      const horariosDisponibles = team.horarios
-        .filter((horario) => horario.disponible)
-        .map((horario) => horario.horario)
-        .join(", ");
-      console.log(horariosDisponibles);
-      const optionText = `${team.nombre} - ${horariosDisponibles}`;
+     let horario_recibido = team.horarios.map(horario => horario["horario"])
+     horario_recibido.forEach((val,id) => {
       select.insertAdjacentHTML(
         "beforeend",
         `
-        <option value="${team.nombre}">${optionText}</option>
+        <option value="${id}">${team.nombre} - ${val}</option>
       `
       );
+     });      
     });
   });
 };
@@ -140,7 +137,7 @@ formularioTrainers.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
   campus.addTrainer(data);
-  console.log(campus.trainers);
+  formularioTrainers.reset();
 });
 
 // Datos de los Campers
@@ -148,7 +145,7 @@ formularioCampers.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
   campus.addCamper(data);
-  console.log(campus.campers);
+  formularioCampers.reset();
 });
 
 // Datos de los Niveles
