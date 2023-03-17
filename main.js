@@ -1,14 +1,12 @@
 const formularioSedes = document.querySelector("#myFormularioSedes");
 const formularioTrainers = document.querySelector("#myFormularioTrainers");
 const formularioCampers = document.querySelector("#myFormularioCampers");
-const formularioNiveles = document.querySelector("#myFormularioNiveles");
 const formularioRoadmaps = document.querySelector("#myFormularioRoadmaps");
 
 const campus = {
   sedes: [],
   trainers: [],
   campers: [],
-  niveles: [],
   roadmaps: [],
   addSede: function (sede) {
     this.sedes.push(sede);
@@ -18,9 +16,6 @@ const campus = {
   },
   addCamper: function (camper) {
     this.campers.push(camper);
-  },
-  addNivel: function (nivel) {
-    this.niveles.push(nivel);
   },
   addRoadmap: function (roadmap) {
     this.roadmaps.push(roadmap);
@@ -148,18 +143,11 @@ formularioCampers.addEventListener("submit", (e) => {
   formularioCampers.reset();
 });
 
-// Datos de los Niveles
-formularioNiveles.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  campus.addNivel(data);
-  console.log(campus.niveles);
-});
-
 // Datos del Roadmap
 formularioRoadmaps.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
   campus.addRoadmap(data);
-  console.log(campus.roadmaps);
+  formularioRoadmaps.reset();
+  console.log(campus);
 });

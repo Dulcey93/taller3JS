@@ -38,21 +38,37 @@
             <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
             <select name="team"></select><br>
             <input type="text" name="adress" placeholder="Ingrese su barrio"><br>
-            <input type="email" name="correo" placeholder="Ingrese el correo del Trainer"><br>
-            <select name="nivel"></select><br>
-            <select name="transporte"></select><br>
-            <input type="submit" value="Guardar">
-        </form>
-    </fieldset>
+            <input type="email" name="correo" placeholder="Ingrese el correo del camper "><br>
 
-    <fieldset>
-        <legend>Datos de los Niveles:</legend>
-        <form id="myFormularioNiveles">
-            <select name="sede"></select><br>
-            <input type="text" name="nombreNivel" placeholder="Nuevo nivel"><br>
-            <select name="requisito"></select><br>
-            <select name="tecnologia"></select><br>
-            <select name="electiva"></select><br>
+            <select name="nivel">
+                <option value="novato">Novato</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="avanzado">Avanzado</option>
+            </select><br>
+              
+            <select name="requisito">
+                <option value="Cumplido">Cumplido</option>
+                <option value="Pendiente">Pendiente</option>
+            </select><br>
+              
+            <select name="tecnologia">
+                <option value="Web">Web</option>
+                <option value="Movil">Móvil</option>
+                <option value="Videojuegos">Videojuegos</option>
+            </select><br>         
+
+            <select name="electiva">
+                <option value="Arte">Arte</option>
+                <option value="Deporte">Deporte</option>
+                <option value="Tecnologia">Tecnología</option>
+            </select><br>
+              
+            <select name="transporte">
+                <option value="Moto">Moto</option>
+                <option value="Carro">Carro</option>
+                <option value="Bus">Bus</option>
+            </select><br>
+              
             <input type="submit" value="Guardar">
         </form>
     </fieldset>
@@ -61,7 +77,15 @@
         <legend>Datos del Roadmap:</legend>
         <form id="myFormularioRoadmaps">
             <select name="sede"></select><br>
-            <select name="roadmap"></select><br>
+            <select name="roadmap">
+                <option value="fundamentos">Fundamentos de JavaScript</option>
+                <option value="dom">Manipulación del DOM</option>
+                <option value="es6">Características de ES6</option>
+                <option value="node">Programación de Servidor con Node.js</option>
+                <option value="react">Creación de Interfaces de Usuario con React</option>
+                <option value="pruebas">Pruebas y Depuración en JavaScript</option>
+                <option value="proyecto">Proyecto Final</option>
+              </select><br>              
             <input type="number" name="creditos" placeholder="numero de créditos"><br>
             <input type="date" name="fecha" value="2017-06-01" placeholder="fecha"><br>
             <input type="number" name="asignaturas" placeholder="numero de asignaturas"><br>
