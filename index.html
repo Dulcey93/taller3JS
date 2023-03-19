@@ -1,96 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Taller 3 de JavaScript | Santiago Dulcey</title>
     <script src="./main.js" type="module" defer></script>
 </head>
+
 <body>
     <fieldset>
         <legend>Datos de contacto de las sedes de CAMPUS:</legend>
         <form id="myFormularioSedes">
-            <input type="text" name="nombreSede" placeholder="Nombre de las sedes"><br><br>
-            <input type="text" name="nombreTeam" placeholder="Agregar team de Campus"><br>
-            <input type="submit" value="Guardar">
+            <input type="text" name="nombreSede" placeholder="Nombre de las sedes" /><br /><br />
+            <input type="text" name="nombreTeam" placeholder="Agregar team de Campus" /><br />
+            <input type="submit" value="Guardar" />
         </form>
     </fieldset>
 
     <fieldset>
         <legend>Datos de los Trainers</legend>
         <form id="myFormularioTrainers">
-            <select name="sede"></select><br>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre del Trainer"><br>
-            <input type="tel" name="telefono" placeholder="Ingrese el telefono del Trainer"><br>
-            <input type="email" name="correo" placeholder="Ingrese el correo del Trainer"><br>
+            <select name="sede"></select><br />
+            <input type="text" name="nombre" placeholder="Ingrese el nombre del Trainer" /><br />
+            <input type="tel" name="telefono" placeholder="Ingrese el telefono del Trainer" /><br />
+            <input type="email" name="correo" placeholder="Ingrese el correo del Trainer" /><br />
+            <h4>Tecnología</h4>
+            <select name="tecnologia">
+                <option value="Web">Web</option>
+                <option value="Movil">Móvil</option>
+                <option value="Videojuegos">Videojuegos</option>
+            </select><br />
+            <br />
+            <h4>Modalidad</h4>
+            <input name="tecnologiaTipo" type="radio" value="Remoto" checked="checked" disabled />Remoto
+            <input name="tecnologiaTipo" type="radio" value="Presencial" disabled />Presencial
+            <br />
+            <h4>Sandbox</h4>
+            <input name="tecnologiaBox" type="radio" value="Aplica" checked="checked" disabled />Aplica
+            <input name="tecnologiaBox" type="radio" value="NoAplica" disabled />No Aplica
             <h4>Asignar team</h4>
-            <select name="team"></select><br>
-            <input type="submit" value="Guardar">
+            <select name="team"></select><br />
+            <br /><input type="submit" value="Guardar" />
         </form>
     </fieldset>
 
     <fieldset>
         <legend>Datos de los Campers</legend>
         <form id="myFormularioCampers">
-            <select name="sede"></select><br>
-            <input type="text" name="nombre" placeholder="Ingrese el nombre del camper"><br>
-            <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper"><br>
-            <select name="team"></select><br>
-            <input type="text" name="adress" placeholder="Ingrese su barrio"><br>
-            <input type="email" name="correo" placeholder="Ingrese el correo del camper "><br>
+            <select name="sede"></select><br />
+            <input type="text" name="nombre" placeholder="Ingrese el nombre del camper" /><br />
+            <input type="tel" name="telefono" placeholder="Ingrese el telefono del camper" /><br />
+            <select name="team"></select><br />
+            <input type="text" name="adress" placeholder="Ingrese su barrio" /><br />
+            <input type="email" name="correo" placeholder="Ingrese el correo del camper " /><br />
 
             <select name="nivel">
                 <option value="novato">Novato</option>
                 <option value="intermedio">Intermedio</option>
                 <option value="avanzado">Avanzado</option>
-            </select><br>
-              
-            <select name="requisito">
-                <option value="Cumplido">Cumplido</option>
-                <option value="Pendiente">Pendiente</option>
-            </select><br>
-              
+            </select><br />
+
             <select name="tecnologia">
                 <option value="Web">Web</option>
                 <option value="Movil">Móvil</option>
                 <option value="Videojuegos">Videojuegos</option>
-            </select><br>         
+            </select><br />
 
             <select name="electiva">
                 <option value="Arte">Arte</option>
                 <option value="Deporte">Deporte</option>
                 <option value="Tecnologia">Tecnología</option>
-            </select><br>
-              
+            </select><br />
+
             <select name="transporte">
                 <option value="Moto">Moto</option>
                 <option value="Carro">Carro</option>
                 <option value="Bus">Bus</option>
-            </select><br>
-              
-            <input type="submit" value="Guardar">
+            </select><br />
+
+            <br /><input type="submit" value="Guardar" />
         </form>
     </fieldset>
 
     <fieldset>
         <legend>Datos del Roadmap:</legend>
         <form id="myFormularioRoadmaps">
-            <select name="sede"></select><br>
+            <select name="sede"></select><br />
+            <h4>Roadmap</h4>
             <select name="roadmap">
+                <option value="fundamentos1">Fundamentos de JavaScript</option>
+                <option value="dom2">Manipulación del DOM</option>
+                <option value="es63">Características de ES6</option>
+                <option value="node4">Programación de Servidor con Node.js</option>
+                <option value="react5">
+                    Creación de Interfaces de Usuario con React
+                </option>
+                <option value="pruebas6">Pruebas y Depuración en JavaScript</option>
+                <option value="proyecto7">Proyecto Final</option>
+            </select><br />
+            <input type="date" name="fecha" value="2017-06-01" placeholder="fecha" /><br />
+            <h4>Asignatura</h4>
+            <select name="asignatura">
                 <option value="fundamentos">Fundamentos de JavaScript</option>
                 <option value="dom">Manipulación del DOM</option>
                 <option value="es6">Características de ES6</option>
                 <option value="node">Programación de Servidor con Node.js</option>
-                <option value="react">Creación de Interfaces de Usuario con React</option>
+                <option value="react">
+                    Creación de Interfaces de Usuario con React
+                </option>
                 <option value="pruebas">Pruebas y Depuración en JavaScript</option>
                 <option value="proyecto">Proyecto Final</option>
-              </select><br>              
-            <input type="number" name="creditos" placeholder="numero de créditos"><br>
-            <input type="date" name="fecha" value="2017-06-01" placeholder="fecha"><br>
-            <input type="number" name="asignaturas" placeholder="numero de asignaturas"><br>
-            <input type="submit" value="Guardar">
+            </select><br />
+            <h4>Requisito</h4>
+            <input name="requisito" type="radio" value="Bases" checked="checked" disabled />Bases de datos
+            <input name="requisito" type="radio" value="Uml" disabled />UML
+            <br />
+            <h4>Numero de créditos</h4>
+            <input name="creditos" type="radio" value="Easy" checked="checked" disabled />2
+            <input name="creditos" type="radio" value="Hard" disabled />4
+            <br />
+            <br /><input type="submit" value="Guardar" />
         </form>
     </fieldset>
 </body>
+
 </html>

@@ -42,18 +42,20 @@ let listaTeams = () => {
   opciones.forEach((select) => {
     select.innerHTML = null;
     const sedeSeleccionada = document.querySelector("[name='sede']").value;
-    const sedeEncontrada = campus.sedes.find((sede) => sede.nombreSede === sedeSeleccionada);
+    const sedeEncontrada = campus.sedes.find(
+      (sede) => sede.nombreSede === sedeSeleccionada
+    );
     const teams = sedeEncontrada ? sedeEncontrada.teams : [];
     teams.forEach((team) => {
-     let horario_recibido = team.horarios.map(horario => horario["horario"])
-     horario_recibido.forEach((val,id) => {
-      select.insertAdjacentHTML(
-        "beforeend",
-        `
+      let horario_recibido = team.horarios.map((horario) => horario["horario"]);
+      horario_recibido.forEach((val, id) => {
+        select.insertAdjacentHTML(
+          "beforeend",
+          `
         <option value="${id}">${team.nombre} - ${val}</option>
       `
-      );
-     });      
+        );
+      });
     });
   });
 };
@@ -125,15 +127,61 @@ formularioSedes.addEventListener("submit", (e) => {
 });
 
 // Actualizar lista de equipos cuando se cambia la sede seleccionada
-document.querySelector("[name='sede']").addEventListener("change", listaTeams);
+document.querySelectorAll("[name='sede']").forEach((sedeSelect) => {
+  sedeSelect.addEventListener("change", listaTeams);
+});
+
+// Event listener para actualizar el estado del radio cuando se cambia la selección del select
+formularioTrainers.tecnologia.addEventListener("change", (e) => {
+  const radioRemoto = formularioTrainers.querySelector('input[name="tecnologiaTipo"][value="Remoto"]');
+  const radioPresencial = formularioTrainers.querySelector('input[name="tecnologiaTipo"][value="Presencial"]');
+  const radioAplica = formularioTrainers.querySelector('input[name="tecnologiaBox"][value="Aplica"]');
+  const radioNoAplica = formularioTrainers.querySelector('input[name="tecnologiaBox"][value="NoAplica"]');
+  
+  radioRemoto.checked = e.target.value === "Web";
+  radioPresencial.checked = e.target.value !== "Web";
+
+  radioAplica.checked = e.target.value === "Web";
+  radioNoAplica.checked = e.target.value !== "Web";
+
+});
+// Event listener para actualizar el estado del radio cuando se cambia la selección del select
+formularioRoadmaps.asignatura.addEventListener("change", (e) => {
+  const radioBases = formularioRoadmaps.querySelector('input[name="requisito"][value="Bases"]');
+  const radioUml = formularioRoadmaps.querySelector('input[name="requisito"][value="Uml"]');
+  const radioEasy = formularioRoadmaps.querySelector('input[name="creditos"][value="Easy"]');
+  const radioNoHard = formularioRoadmaps.querySelector('input[name="creditos"][value="Hard"]');
+  
+  radioBases.checked = e.target.value === "dom";
+  radioUml.checked = e.target.value !== "dom";
+
+  radioEasy.checked = e.target.value === "dom";
+  radioNoHard.checked = e.target.value !== "dom";
+});
+
 
 // Datos de los Trainers
 formularioTrainers.addEventListener("submit", (e) => {
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  campus.addTrainer(data);
+  const { sede, nombre, telefono, correo, tecnologia, tecnologiaTipo, team } = Object.fromEntries(new FormData(e.target));
+  let informacionExtra;
+  if (sede === "Medellín") {
+    informacionExtra = document.createElement("h5");
+    informacionExtra.textContent = "Teléfono: 1234567890";
+  } else if (sede === "Bucaramanga") {
+    informacionExtra = document.createElement("h5");
+    informacionExtra.textContent = "Dirección: Carrera 123 #45-67";
+  }
+
+  if (informacionExtra) {
+    informacionExtra.id = "informacionExtra";
+    const selectSede = document.querySelector("[name='sede']");
+    selectSede.parentNode.insertBefore(informacionExtra, selectSede.nextSibling);
+  }
+  campus.addTrainer({sede, nombre, telefono, correo, tecnologia, tecnologiaTipo, team});
   formularioTrainers.reset();
 });
+
 
 // Datos de los Campers
 formularioCampers.addEventListener("submit", (e) => {
